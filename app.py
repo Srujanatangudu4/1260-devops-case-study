@@ -10,16 +10,15 @@ COLOR_MEANINGS = {
     "purple": "Purple symbolizes luxury, wisdom, and imagination."
 }
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
-    meaning = ""
-    selected_color = ""
-    if request.method == "POST":
-        selected_color = request.form.get("color")
-        meaning = COLOR_MEANINGS.get(selected_color, "")
-    return render_template("index.html", meaning=meaning, color=selected_color)
+    return render_template("index.html")
+
+@app.route("/result", methods=["POST"])
+def result():
+    selected_color = request.form.get("color")
+    meaning = COLOR_MEANINGS.get(selected_color, "")
+    return render_template("result.html", color=selected_color, meaning=meaning)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
-
+    app.run(host="0.0.0.0", port=5000)
