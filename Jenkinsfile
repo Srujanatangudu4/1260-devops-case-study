@@ -20,7 +20,7 @@ pipeline{
                 bat "docker push Srujanatangudu4/sample:kubeimage1"
             }
         }
-        steps('Deploy to Kubernetes'){
+        stage('Deploy to Kubernetes'){
             steps{
                 bat 'kubectl apply -f deployment.yaml --validate=false'
                 bat 'kubectl apply -f service.yaml'
@@ -35,4 +35,5 @@ pipeline{
             echo 'Unsuccessful'
         }
     }
+
 }
