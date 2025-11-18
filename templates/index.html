@@ -2,58 +2,18 @@
 <html>
 <head>
     <title>Color Meaning Viewer</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: #eef1f7; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-        }
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            width: 320px;
-            text-align: center;
-            box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
-        }
-        select, button {
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background: #4a63e7;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #3a4fbd;
-        }
-    </style>
 </head>
 <body>
-
-    <div class="card">
-        <h2>Choose a Color</h2>
-        <form method="POST">
-            <select name="color">
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-                <option value="purple">Purple</option>
-            </select>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
+    <h2>Select a Color</h2>
+    <form method="POST" action="/result">
+        <select name="color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="purple">Purple</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
