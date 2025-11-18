@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random History Fact</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔎 Random History Fact</h1>
+    <form action="/fact" method="POST">
+        <input type="number" name="month" placeholder="Month (1-12)" required>
+        <input type="number" name="day" placeholder="Day (1-31)" required><br>
+        <button type="submit">Get Fact</button>
+    </form>
+</body>
+
+</html>
