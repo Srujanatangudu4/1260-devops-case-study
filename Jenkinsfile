@@ -1,32 +1,37 @@
-pipeline{
+pipeline {
     agent any
-    stages
-    {
-        stage('Build Docker Image'){
-            steps{
+
+    stages {
+
+        stage('Build Docker Image') {
+            steps {
                 echo "Build Docker Image"
-                bat "docker build -t kubedemoapp:v1 ."
+                bat "docker build -t colorapp:v1 ."
             }
         }
-        stage('Docker Login'){
-            steps{
+
+        stage('Docker Login') {
+            steps {
                 bat 'docker login -u srujanatangudu4 -p Srujana@2004'
             }
         }
-        stage('push Docker Image to Docker Hub'){
-            steps{
-                echo "push Docker Image to Docker Hub"
-                bat "docker tag kubedemoapp:v1 srujanatangudu4/kubedemoapp:kubeimage1"
-                bat "docker push srujanatangudu4/kubedemoapp:kubeimage1"
+
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                echo "Push Docker Image to Docker Hub"
+                bat "docker tag colorapp:v1 srujanatangudu4/sample:colorapp1"
+                bat "docker push srujanatangudu4/sample:colorapp1"
             }
         }
-        stage('Deploy to Kubernetes'){
-            steps{
+
+        stage('Deploy to Kubernetes') {
+            steps {
                 bat 'kubectl apply -f deployment.yaml --validate=false'
                 bat 'kubectl apply -f service.yaml'
             }
         }
     }
+
     post {
         success {
             echo 'Successful'
@@ -35,7 +40,4 @@ pipeline{
             echo 'Unsuccessful'
         }
     }
-
 }
-
-
