@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubedemoapp-deployment
+  name: colorapp-deployment
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: kubedemoapp
+      app: colorapp
   template:
     metadata:
       labels:
-        app: kubedemoapp
+        app: colorapp
     spec:
       containers:
-        - name: kubedemoapp
-          image: srujanatangudu4/kubedemoapp:kubeimage1
+        - name: colorapp
+          image: srujanatangudu4/sample:colorapp1
           ports:
             - containerPort: 5000
-
-
